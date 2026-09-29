@@ -1,0 +1,13 @@
+{
+  "crop": [
+    135,
+    0,
+    637,
+    560
+  ],
+  "source_frames": [
+    54,
+    159
+  ],
+  "rule": "Union of source pixels >40 away from white, expanded8px; fixed for all shots"
+}

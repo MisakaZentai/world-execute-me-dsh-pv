@@ -1,0 +1,9 @@
+{
+  "name": "world-execute-me-dsh-pv",
+  "private": true,
+  "license": "MIT",
+  "description": "Screenshots the per-frame dsh window pages (film/pv_dsh_frontend_20260927/seg_shot.mjs) with Playwright.",
+  "dependencies": {
+    "playwright": "1.63.0"
+  }
+}

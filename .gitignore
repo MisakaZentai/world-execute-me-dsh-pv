@@ -1,0 +1,25 @@
+# your own inputs (copyrighted: never commit)
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+input/*
+!input/README.md
+
+# generated at build time
+out/
+node_modules/
+__pycache__/
+*.pyc
+film/world_execute_word_timing_20260927/
+film/ai_mascot_mv_world_execute_20260926/audio/
+film/pv_dsh_frontend_20260927/dsh_frames/
+film/pv_dsh_frontend_20260927/segments/
+film/pv_dsh_frontend_20260927/*_frames.json
+film/pv_dsh_frontend_20260927/stills*/
+film/pv_dsh_frontend_20260927/mem.html
+film/pv_dsh_frontend_20260927/*.mp4
+film/mmd_motion_eval_20260927/pv_cache/
+film/tui_pv_world_execute_20260926/continuity_full_v2/cache/

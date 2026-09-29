@@ -1,0 +1,45 @@
+{
+ "about": "The dancer caches the film reads: per cache folder, each take's frame count (entries in <take>.json) and the rgba/<take>/NNN.png indices that exist, as runs [first, last]. tools/placeholder_h3.py writes stand-in caches of exactly this shape.",
+ "fps": 24,
+ "caches": [
+ {
+  "folder": "film/mmd_motion_eval_20260927/pv_cache",
+  "read_by": "pv_full.py (V2_HER=h3 takes named mmd_<take>)",
+  "takes": {
+   "mmd01": {"frames": 362, "rgba": [[0, 361]]},
+   "W0": {"frames": 124, "rgba": [[0, 123]]},
+   "W10": {"frames": 260, "rgba": [[0, 259]]},
+   "W2a": {"frames": 124, "rgba": [[0, 123]]},
+   "W2b": {"frames": 192, "rgba": [[0, 191]]},
+   "W3": {"frames": 362, "rgba": [[0, 361]]},
+   "W4": {"frames": 362, "rgba": [[0, 361]]},
+   "W5": {"frames": 362, "rgba": [[0, 361]]},
+   "W6": {"frames": 362, "rgba": [[0, 361]]},
+   "W7": {"frames": 362, "rgba": [[0, 361]]},
+   "W8": {"frames": 192, "rgba": [[0, 191]]}
+  }
+ },
+ {
+  "folder": "film/tui_pv_world_execute_20260926/continuity_full_v2/cache/h3_full_v1",
+  "read_by": "h3_full.py (PLAN names)",
+  "takes": {
+   "bow": {"frames": 124, "rgba": [[0, 123]]},
+   "cup": {"frames": 124, "rgba": [[0, 123]]},
+   "downbeat": {"frames": 124, "rgba": [[0, 123]]},
+   "fold": {"frames": 124, "rgba": [[0, 123]]},
+   "groove": {"frames": 192, "rgba": [[0, 191]]},
+   "inspect": {"frames": 124, "rgba": [[0, 123]]},
+   "open": {"frames": 124, "rgba": [[0, 123]]},
+   "present": {"frames": 124, "rgba": [[0, 123]]},
+   "reach": {"frames": 124, "rgba": [[0, 123]]},
+   "release": {"frames": 124, "rgba": [[0, 123]]},
+   "settle": {"frames": 192, "rgba": [[0, 191]]},
+   "step": {"frames": 192, "rgba": [[0, 191]]},
+   "sway": {"frames": 124, "rgba": [[0, 123]]},
+   "sweep": {"frames": 124, "rgba": [[0, 123]]},
+   "tense": {"frames": 124, "rgba": [[0, 123]]},
+   "turn": {"frames": 124, "rgba": [[0, 123]]}
+  }
+ }
+ ]
+}
