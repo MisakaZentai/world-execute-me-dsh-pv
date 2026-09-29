@@ -2,6 +2,13 @@
 
 本仓库的代码按 [LICENSE](LICENSE)（MIT）发布。下面这些不属于那份许可，各自保留原来的许可和权利。
 
+This licence covers the code in this repository (the .py, .mjs and .html files
+written for this film). It does not cover the third-party material listed in
+NOTICE.md, which keeps its own licence: the whale maid artwork and everything
+derived from it (CC BY-NC-SA 4.0), the dsh web frontend files (MIT, DeepSeek),
+and the fonts (SIL Open Font License). The song and its lyrics are not part of
+this repository.
+
 ## 鲸鱼娘立绘与表情（CC BY-NC-SA 4.0）
 
 - **文件**：

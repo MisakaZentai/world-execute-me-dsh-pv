@@ -19,12 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-This licence covers the code in this repository (the .py, .mjs and .html files
-written for this film). It does not cover the third-party material listed in
-NOTICE.md, which keeps its own licence: the whale maid artwork and everything
-derived from it (CC BY-NC-SA 4.0), the dsh web frontend files (MIT, DeepSeek),
-and the fonts (SIL Open Font License). The song and its lyrics are not part of
-this repository.
