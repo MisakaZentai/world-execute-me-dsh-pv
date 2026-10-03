@@ -4,3 +4,8 @@ python/
 # Python 编译缓存
 __pycache__/
 *.pyc
+
+# 受版权保护：公开分享版不收录（运行请自备 input/song.mp3，歌词可重新生成）
+input/song.mp3
+input/lyrics.lrc
+film/world_execute_word_timing_20260927/word_timeline.json
