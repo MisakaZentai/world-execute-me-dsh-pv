@@ -1,0 +1,10 @@
+{
+  "title": "Mili - world.execute(me);",
+  "sha256": "79c4e53663c7966b7160bff19326e614658485d4ce0199ff82715ea9d0a418fc",
+  "duration_s": 211.913,
+  "codec": "mp3",
+  "sample_rate": 44100,
+  "channels": 2,
+  "bit_rate": 320000,
+  "note": "The film was timed on this file (time zero = its first decoded sample). The audio itself is not in this repository."
+}

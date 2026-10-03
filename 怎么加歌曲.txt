@@ -1,0 +1,23 @@
+自己加音乐就行(包里没有歌曲,版权原因)
+
+1. 把你自己的 world.execute(me); 音频**转成 mp3** 后放到  input\song.mp3
+   (320 kbps 最好,和成片一致;来源合法即可)
+   必须是 mp3(或 wav):播放器走 Windows 的 MCI "mpegvideo" 设备,
+   它**打不开 flac**(实测 open 返回 rc=277),flac 放进去只会静音。
+   用 ffmpeg 一行转:ffmpeg -y -i 你的.flac -ss 0.124 -c:a libmp3lame -b:a 320k input\song.mp3
+   (那个 -ss 0.124 是必须的:成片的时钟对着的就是"剪掉开头 124 ms"的 mp3)
+2. 不确定就让它自己检查:python\python.exe _tools\check_song.py
+      它会说这个文件播放器能不能打开、是不是同一版本、要不要补 -ss 0.124
+
+3. 没有歌曲也能运行:双击 启动终端版.cmd 会静音播放,时钟走系统时间,
+   画面、歌词、中文对照一切正常。
+
+本包只有歌曲没有附带,歌词与逐词时间都在包里。原作者:原片 · 全部出片代码
+MisakaZentai(bilibili BV1xCai6aE9g);终端实时版:林原林海。
+
+如果你要把这个包**上传到公开仓库/网盘**,请先把这三样删掉再传:
+  input\song.mp3            (本包已经删了)
+  input\lyrics.lrc
+  film\world_execute_word_timing_20260927\word_timeline.json
+注意:后两样删掉之后播放器会报 `could not load the engine`,她的窗格会消失 ——
+要让"无歌词版"也能跑,得改引擎代码,那是另一件事。

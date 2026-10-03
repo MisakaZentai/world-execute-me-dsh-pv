@@ -1,0 +1,6 @@
+# 自带的 Python 运行时（78.7 MB，不进版本库；运行请自备 Python 3.12+）
+python/
+
+# Python 编译缓存
+__pycache__/
+*.pyc

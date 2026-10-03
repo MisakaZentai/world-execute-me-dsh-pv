@@ -1,0 +1,21 @@
+{
+ "about": "Stand-in takes written by tools/placeholder_h3.py (derived from the whale maid art, CC BY-NC-SA 4.0). Delete a take's files and its name here to replace it with your own.",
+ "takes": [
+  "bow",
+  "cup",
+  "downbeat",
+  "fold",
+  "groove",
+  "inspect",
+  "open",
+  "present",
+  "reach",
+  "release",
+  "settle",
+  "step",
+  "sway",
+  "sweep",
+  "tense",
+  "turn"
+ ]
+}

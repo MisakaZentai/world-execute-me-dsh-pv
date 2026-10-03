@@ -1,0 +1,4 @@
+input/song.mp3 和 input/lyrics.lrc 本来不在原仓库里(版权),这个包里放进来了,
+只为了让对方解压即可运行。仅供私下非商业分享;要公开分享请删掉这两个文件和
+film/world_execute_word_timing_20260927/word_timeline.json(可以用
+python tools\lyrics.py fetch + merge 在对方机器上重新生成)。
