@@ -45,12 +45,14 @@ minterpolate=fps=60:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:me=epzs:mb_size=16:s
 |---|---|
 | `fps=60` | 目标时间网格为每秒 60 帧 |
 | `mi_mode=mci` | 根据估计的运动合成中间画面 |
-| `mc_mode=aobmc` | 对重叠的运动块做自适应加权 |
+| `mc_mode=aobmc` | 历史命令保留的选项；本次 `me_mode=bidir` 下不启用自适应加权 |
 | `me_mode=bidir` | 在前后两个方向估计运动 |
 | `me=epzs` | 使用 EPZS 搜索算法 |
 | `mb_size=16`、`search_param=16` | 本次使用的运动块与搜索参数 |
-| `vsbmc=1` | 开启可变块尺寸补偿，细化物体边界 |
+| `vsbmc=1` | 历史命令保留的选项；本次 `me_mode=bidir` 下不启用可变块尺寸补偿 |
 | `scd=fdiff`、`scd_threshold=5` | 根据帧差检测切镜；命中时用重复帧代替跨镜头运动插值 |
+
+`aobmc` 与 `vsbmc` 的上述功能只在 `me_mode=bilat` 分支生效，见 [FFmpeg 7.1 实现](https://github.com/FFmpeg/FFmpeg/blob/n7.1/libavfilter/vf_minterpolate.c#L751-L810)。这里保留历史命令以对应导出记录，不将未生效的选项描述为实际画质收益，也不改换运动估计算法。
 
 这里的运动补偿由 FFmpeg 执行，本次没有使用神经网络插帧模型。切镜处、静止区域等可能出现相同画面，所以输出 60 fps 不表示每秒都有 60 张互不相同的图像。参数语义见 [FFmpeg minterpolate 文档](https://ffmpeg.org/ffmpeg-filters.html#minterpolate)。
 
@@ -125,9 +127,10 @@ H.264 使用帧间预测，视频文件无需独立存储每一帧的全部像�
 
 ## 4. 用现有项目输出复现后处理
 
-需要 PATH 中的 `ffmpeg`、`ffprobe`，且 FFmpeg 包含 `minterpolate` 与 `libx264`。可以先检查：
+需要 PATH 中的 **FFmpeg 5.1 或更新版本**（`ffmpeg`、`ffprobe`），且构建包含 `minterpolate` 与 `libx264`。示例使用的 `-fps_mode` 从 FFmpeg 5.1 开始提供；较早版本即使包含上述滤镜和编码器，也不能直接运行这些命令。可以先检查：
 
 ```sh
+ffmpeg -version
 ffmpeg -hide_banner -h filter=minterpolate
 ffmpeg -hide_banner -h encoder=libx264
 ```
@@ -174,6 +177,7 @@ ffmpeg -hide_banner -n -filter_threads 1 \
 
 ```powershell
 Get-Command ffmpeg.exe, ffprobe.exe
+ffmpeg.exe -version
 ffmpeg.exe -hide_banner -h filter=minterpolate
 ffmpeg.exe -hide_banner -h encoder=libx264
 ```
@@ -234,16 +238,16 @@ Windows 的 CMD 与 PowerShell 使用不同的命令语法；这段数组写法�
 - AAC 音轨为 44.1 kHz、双声道，时长与画面匹配。
 - 两份 60 帧成片的音频包 SHA-256 均与已对齐的源混音一致，歌曲及提示音没有再次压缩。
 
-可以用下列命令读取输出信息；替换文件名即可核对另一种规格：
+可以用下列命令读取上述示例输出的信息；将文件名替换为 `out/film_2k60_example.mp4` 即可核对另一种规格：
 
 ```sh
 ffprobe -v error \
   -show_entries "format=duration,size:stream=codec_type,codec_name,width,height,pix_fmt,r_frame_rate,avg_frame_rate,nb_frames,duration,bit_rate,sample_rate,channels" \
-  -of json out/film_1080p60.mp4
+  -of json out/film_1080p60_example.mp4
 
 # 比较以下两行的 SHA-256 值；这里只读取压缩音频包，不解码视频。
 ffmpeg -v error -i out/film.mp4 -map 0:a:0 -c copy -f streamhash -hash sha256 -
-ffmpeg -v error -i out/film_1080p60.mp4 -map 0:a:0 -c copy -f streamhash -hash sha256 -
+ffmpeg -v error -i out/film_1080p60_example.mp4 -map 0:a:0 -c copy -f streamhash -hash sha256 -
 ```
 
 真实成片的历史导出使用 macOS / Apple Silicon 上的 FFmpeg 9.0.2。2K 本地分段导出日志记录总耗时约 425 秒；这是一次执行记录，不构成不同机器或编码器版本的性能保证。仓库提交不包含这些媒体文件，因此本次文档贡献没有在当前环境重新读取真实成片。
