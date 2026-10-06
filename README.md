@@ -37,6 +37,10 @@ python build.py all --4k       # 另出 3840×2160 版
 - **耗时**：CPU 渲染全片大约十几分钟到半小时，取决于核数。有 CUDA 版 torch 时，加 `--gpu --python <那个 python>` 会快很多。
 - **分步**：每一步也可以单独跑，`python build.py <check|lyrics|dancer|pages|render>`。
 
+### 60 帧导出（可选后处理）
+
+生成无损 720p 母版后，可以用 FFmpeg 做运动补偿插帧，导出 1080p / 60 fps 或 2560×1440 / 60 fps 播放版，无需重新生成网页截图和角色缓存。方法、实测大小，以及文件大小与运行时内存的区别见 [60 帧导出说明](docs/60FPS_EXPORT.md)，其中提供 bash / zsh 和 Windows PowerShell 的复现命令。
+
 ## 不在仓库里的，以及替代办法
 
 | 东西 | 为什么 | 替代办法 |
@@ -68,7 +72,7 @@ python build.py all --4k       # 另出 3840×2160 版
 | `film/mmd_motion_eval_20260927/pv_full.py` | 舞者的时间表 |
 | `film/third_party_references/` | 鲸鱼娘立绘和表情（CC BY-NC-SA 4.0） |
 | `film/vendor/` | dsh 前端（`dsh-web-frontend`）和 Cordis 组件包（`dsh-client-ui-cordis`）的 CSS 和 JS（MIT，DeepSeek） |
-| `docs/` | [制作原理](docs/HOW_IT_WORKS.md)、[字体](docs/FONTS.md) |
+| `docs/` | [制作原理](docs/HOW_IT_WORKS.md)、[字体](docs/FONTS.md)、[60 帧导出](docs/60FPS_EXPORT.md) |
 
 ## 许可
 
